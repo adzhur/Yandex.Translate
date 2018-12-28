@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491AD12E21D6923700473615 /* UITranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491AD12D21D6923700473615 /* UITranslateView.swift */; };
+		492192A221D5945E000A5136 /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492192A121D5945E000A5136 /* TranslatorViewController.swift */; };
+		492192A421D594CA000A5136 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492192A321D594CA000A5136 /* MessageCell.swift */; };
+		498C150B21D2BEC30050C793 /* InputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C150A21D2BEC30050C793 /* InputBar.swift */; };
 		499700CD21CE880000B053FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499700CC21CE880000B053FE /* AppDelegate.swift */; };
-		499700CF21CE880000B053FE /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499700CE21CE880000B053FE /* MasterViewController.swift */; };
-		499700D121CE880000B053FE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499700D021CE880000B053FE /* DetailViewController.swift */; };
 		499700D421CE880000B053FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499700D221CE880000B053FE /* Main.storyboard */; };
 		499700D621CE880200B053FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 499700D521CE880200B053FE /* Assets.xcassets */; };
 		499700D921CE880200B053FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499700D721CE880200B053FE /* LaunchScreen.storyboard */; };
@@ -18,10 +20,12 @@
 
 /* Begin PBXFileReference section */
 		29B7BEAE42B53B05155F741C /* Pods-Translator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Translator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Translator/Pods-Translator.release.xcconfig"; sourceTree = "<group>"; };
+		491AD12D21D6923700473615 /* UITranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITranslateView.swift; sourceTree = "<group>"; };
+		492192A121D5945E000A5136 /* TranslatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewController.swift; sourceTree = "<group>"; };
+		492192A321D594CA000A5136 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		498C150A21D2BEC30050C793 /* InputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBar.swift; sourceTree = "<group>"; };
 		499700C921CE880000B053FE /* Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Translator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		499700CC21CE880000B053FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		499700CE21CE880000B053FE /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		499700D021CE880000B053FE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		499700D321CE880000B053FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		499700D521CE880200B053FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		499700D821CE880200B053FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,6 +54,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		492192A021D59409000A5136 /* Contlroller */ = {
+			isa = PBXGroup;
+			children = (
+				492192A121D5945E000A5136 /* TranslatorViewController.swift */,
+			);
+			path = Contlroller;
+			sourceTree = "<group>";
+		};
+		498C150921D2BE6B0050C793 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				498C150A21D2BEC30050C793 /* InputBar.swift */,
+				492192A321D594CA000A5136 /* MessageCell.swift */,
+				491AD12D21D6923700473615 /* UITranslateView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		499700C021CE880000B053FE = {
 			isa = PBXGroup;
 			children = (
@@ -71,9 +93,9 @@
 		499700CB21CE880000B053FE /* Translator */ = {
 			isa = PBXGroup;
 			children = (
+				492192A021D59409000A5136 /* Contlroller */,
+				498C150921D2BE6B0050C793 /* View */,
 				499700CC21CE880000B053FE /* AppDelegate.swift */,
-				499700CE21CE880000B053FE /* MasterViewController.swift */,
-				499700D021CE880000B053FE /* DetailViewController.swift */,
 				499700D221CE880000B053FE /* Main.storyboard */,
 				499700D521CE880200B053FE /* Assets.xcassets */,
 				499700D721CE880200B053FE /* LaunchScreen.storyboard */,
@@ -203,9 +225,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				499700D121CE880000B053FE /* DetailViewController.swift in Sources */,
-				499700CF21CE880000B053FE /* MasterViewController.swift in Sources */,
+				498C150B21D2BEC30050C793 /* InputBar.swift in Sources */,
+				492192A421D594CA000A5136 /* MessageCell.swift in Sources */,
 				499700CD21CE880000B053FE /* AppDelegate.swift in Sources */,
+				492192A221D5945E000A5136 /* TranslatorViewController.swift in Sources */,
+				491AD12E21D6923700473615 /* UITranslateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
