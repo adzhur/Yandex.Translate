@@ -7,29 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		491AD12E21D6923700473615 /* UITranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491AD12D21D6923700473615 /* UITranslateView.swift */; };
+		491AD13221D6973F00473615 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491AD13121D6973E00473615 /* UI.swift */; };
+		491CA71621F3A3BF00CAB37C /* UIRightMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CA71521F3A3BF00CAB37C /* UIRightMessageView.swift */; };
+		491CA71921F3A61F00CAB37C /* YandexAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CA71821F3A61F00CAB37C /* YandexAPI.swift */; };
 		492192A221D5945E000A5136 /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492192A121D5945E000A5136 /* TranslatorViewController.swift */; };
-		492192A421D594CA000A5136 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492192A321D594CA000A5136 /* MessageCell.swift */; };
-		498C150B21D2BEC30050C793 /* InputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C150A21D2BEC30050C793 /* InputBar.swift */; };
+		492192A421D594CA000A5136 /* UIMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492192A321D594CA000A5136 /* UIMessageCell.swift */; };
+		498C150B21D2BEC30050C793 /* UIInputBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C150A21D2BEC30050C793 /* UIInputBarView.swift */; };
 		499700CD21CE880000B053FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499700CC21CE880000B053FE /* AppDelegate.swift */; };
 		499700D421CE880000B053FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499700D221CE880000B053FE /* Main.storyboard */; };
 		499700D621CE880200B053FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 499700D521CE880200B053FE /* Assets.xcassets */; };
 		499700D921CE880200B053FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499700D721CE880200B053FE /* LaunchScreen.storyboard */; };
+		49D3099D21D6AC1B00A9527E /* YandexSansText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49D3099721D6AC1B00A9527E /* YandexSansText-Medium.ttf */; };
+		49D309A521D6B40E00A9527E /* UILeftMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D309A421D6B40E00A9527E /* UILeftMessageView.swift */; };
 		6153FD0D44D73F1DAE09FD16 /* Pods_Translator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E4AF2D0636086A8FB959C2 /* Pods_Translator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		29B7BEAE42B53B05155F741C /* Pods-Translator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Translator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Translator/Pods-Translator.release.xcconfig"; sourceTree = "<group>"; };
-		491AD12D21D6923700473615 /* UITranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITranslateView.swift; sourceTree = "<group>"; };
+		491AD13121D6973E00473615 /* UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
+		491CA71521F3A3BF00CAB37C /* UIRightMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRightMessageView.swift; sourceTree = "<group>"; };
+		491CA71821F3A61F00CAB37C /* YandexAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexAPI.swift; sourceTree = "<group>"; };
 		492192A121D5945E000A5136 /* TranslatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewController.swift; sourceTree = "<group>"; };
-		492192A321D594CA000A5136 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
-		498C150A21D2BEC30050C793 /* InputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputBar.swift; sourceTree = "<group>"; };
+		492192A321D594CA000A5136 /* UIMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIMessageCell.swift; sourceTree = "<group>"; };
+		498C150A21D2BEC30050C793 /* UIInputBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIInputBarView.swift; sourceTree = "<group>"; };
 		499700C921CE880000B053FE /* Translator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Translator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		499700CC21CE880000B053FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		499700D321CE880000B053FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		499700D521CE880200B053FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		499700D821CE880200B053FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		499700DA21CE880200B053FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49D3099721D6AC1B00A9527E /* YandexSansText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YandexSansText-Medium.ttf"; sourceTree = "<group>"; };
+		49D309A421D6B40E00A9527E /* UILeftMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILeftMessageView.swift; sourceTree = "<group>"; };
 		B7E4AF2D0636086A8FB959C2 /* Pods_Translator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Translator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81E02480C18C36A0A47823A /* Pods-Translator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Translator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Translator/Pods-Translator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +62,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		491AD12F21D6970300473615 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				491AD13121D6973E00473615 /* UI.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		491CA71721F3A59300CAB37C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				491CA71821F3A61F00CAB37C /* YandexAPI.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		492192A021D59409000A5136 /* Contlroller */ = {
 			isa = PBXGroup;
 			children = (
@@ -65,9 +89,10 @@
 		498C150921D2BE6B0050C793 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				498C150A21D2BEC30050C793 /* InputBar.swift */,
-				492192A321D594CA000A5136 /* MessageCell.swift */,
-				491AD12D21D6923700473615 /* UITranslateView.swift */,
+				492192A321D594CA000A5136 /* UIMessageCell.swift */,
+				49D309A421D6B40E00A9527E /* UILeftMessageView.swift */,
+				491CA71521F3A3BF00CAB37C /* UIRightMessageView.swift */,
+				498C150A21D2BEC30050C793 /* UIInputBarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -75,6 +100,8 @@
 		499700C021CE880000B053FE = {
 			isa = PBXGroup;
 			children = (
+				49D3099321D6AB9B00A9527E /* Resources */,
+				491AD12F21D6970300473615 /* Extensions */,
 				499700CB21CE880000B053FE /* Translator */,
 				499700CA21CE880000B053FE /* Products */,
 				DD326607BB952AFF3D93055B /* Pods */,
@@ -93,6 +120,7 @@
 		499700CB21CE880000B053FE /* Translator */ = {
 			isa = PBXGroup;
 			children = (
+				491CA71721F3A59300CAB37C /* Classes */,
 				492192A021D59409000A5136 /* Contlroller */,
 				498C150921D2BE6B0050C793 /* View */,
 				499700CC21CE880000B053FE /* AppDelegate.swift */,
@@ -102,6 +130,30 @@
 				499700DA21CE880200B053FE /* Info.plist */,
 			);
 			path = Translator;
+			sourceTree = "<group>";
+		};
+		49D3099321D6AB9B00A9527E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				49D3099421D6ABB000A9527E /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		49D3099421D6ABB000A9527E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				49D3099521D6ABB800A9527E /* Yandex Sans Text */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		49D3099521D6ABB800A9527E /* Yandex Sans Text */ = {
+			isa = PBXGroup;
+			children = (
+				49D3099721D6AC1B00A9527E /* YandexSansText-Medium.ttf */,
+			);
+			path = "Yandex Sans Text";
 			sourceTree = "<group>";
 		};
 		DD326607BB952AFF3D93055B /* Pods */ = {
@@ -173,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D3099D21D6AC1B00A9527E /* YandexSansText-Medium.ttf in Resources */,
 				499700D921CE880200B053FE /* LaunchScreen.storyboard in Resources */,
 				499700D621CE880200B053FE /* Assets.xcassets in Resources */,
 				499700D421CE880000B053FE /* Main.storyboard in Resources */,
@@ -225,11 +278,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				498C150B21D2BEC30050C793 /* InputBar.swift in Sources */,
-				492192A421D594CA000A5136 /* MessageCell.swift in Sources */,
+				498C150B21D2BEC30050C793 /* UIInputBarView.swift in Sources */,
+				491AD13221D6973F00473615 /* UI.swift in Sources */,
+				492192A421D594CA000A5136 /* UIMessageCell.swift in Sources */,
 				499700CD21CE880000B053FE /* AppDelegate.swift in Sources */,
+				491CA71921F3A61F00CAB37C /* YandexAPI.swift in Sources */,
+				49D309A521D6B40E00A9527E /* UILeftMessageView.swift in Sources */,
 				492192A221D5945E000A5136 /* TranslatorViewController.swift in Sources */,
-				491AD12E21D6923700473615 /* UITranslateView.swift in Sources */,
+				491CA71621F3A3BF00CAB37C /* UIRightMessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

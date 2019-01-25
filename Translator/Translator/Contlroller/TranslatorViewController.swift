@@ -10,10 +10,12 @@ import UIKit
 
 class TranslatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    let message: [String] = ["Hello World!", "Hello, my name is Andrew", "This world is perfect!!!"]
+//    let message: [String] = ["Hello World!", "Hello, my name is Andrew", "This world is perfect!!!"]
     
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var inputBar: UIInputBarView!
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,16 +23,40 @@ class TranslatorViewController: UIViewController, UITableViewDelegate, UITableVi
         
         tableView.dataSource = self
         
-//        tableView.rowHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi));
+        
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.textView.frame.origin.y == 0 {
+                self.textView.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.textView.frame.origin.y != 0 {
+            self.textView.frame.origin.y = 0
+        }
+    }
+    
+    
 
     // MARK: - Table view data source
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -39,15 +65,21 @@ class TranslatorViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        return message.count
+        return 5//message.count
     }
+    
+    //func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+     //   return 12
+    //}
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Message", for: indexPath) as! MessageCell
-        let message = self.message[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UIRightCell", for: indexPath) as! UIMessageCell
         
-        cell.configCell(message: message)
+//        let message = self.message[indexPath.row]
+        
+        cell.configCell(message: "")
+        cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
 
         // Configure the cell...
 
