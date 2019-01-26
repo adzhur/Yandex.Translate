@@ -10,8 +10,8 @@ import UIKit
 
 class UIMessageCell: UITableViewCell {
     
-    @IBOutlet weak var headerLbl: UILabel!
     @IBOutlet weak var textLbl: UILabel!
+    @IBOutlet weak var tTextLbl: UILabel!
     
     //    var side: SideDirection
     
@@ -27,27 +27,38 @@ class UIMessageCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configCell(message: String) {
-        
-        headerLbl.text = "Excuse me, my mama mia Luqcioid?"
-        textLbl.text = "Подскажите, как пройти в библиотеку, ты уебок иди сбда блять я тебя уебу пару разы?"
-        
+    func ConfigCell(data: Data) {
+        textLbl.text = data.text
+        tTextLbl.text = data.tText
     }
     
-    public func setBodyConstraints(side: UIMessageCell.SideDirection) {
-//        switch side {
-//        case .Left:
-//            leftConstraint.relation = .equal
-//            rightConstraint.relation = .greaterThanOrEqual
-            
-//        case .Right:
-//            leftConstraint.relation = .equal
-//            rightConstraint.relation = .greaterThanOrEqual
-//        }
-    }
-    
-    enum SideDirection {
-        case Left
-        case Right
+    class Data {
+        var text: String
+        var tText: String?
+        var tDirection: TDirection
+        var side: Side
+        
+        init(text: String, translated tText: String, translation tDirection: TDirection, view side: Side) {
+            self.text = text
+            self.tText = tText
+            self.tDirection = tDirection
+            self.side = side
+        }
+        
+        init(text: String, tDirection: TDirection) {
+            self.text = text
+            self.tDirection = tDirection
+            self.side = Data.definitionSide(tDirection: tDirection)
+        }
+        
+        static func definitionSide(tDirection: TDirection) -> Side {
+            switch tDirection.to {
+            case .en:
+                return .left
+                
+            case .ru:
+                return .right
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4918548221FB984F00B09848 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918548121FB984F00B09848 /* Classes.swift */; };
 		491AD13221D6973F00473615 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491AD13121D6973E00473615 /* UI.swift */; };
 		491CA71621F3A3BF00CAB37C /* UIRightMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CA71521F3A3BF00CAB37C /* UIRightMessageView.swift */; };
 		491CA71921F3A61F00CAB37C /* YandexAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491CA71821F3A61F00CAB37C /* YandexAPI.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		29B7BEAE42B53B05155F741C /* Pods-Translator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Translator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Translator/Pods-Translator.release.xcconfig"; sourceTree = "<group>"; };
+		4918548121FB984F00B09848 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		491AD13121D6973E00473615 /* UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 		491CA71521F3A3BF00CAB37C /* UIRightMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRightMessageView.swift; sourceTree = "<group>"; };
 		491CA71821F3A61F00CAB37C /* YandexAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexAPI.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				491CA71821F3A61F00CAB37C /* YandexAPI.swift */,
+				4918548121FB984F00B09848 /* Classes.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				491CA71921F3A61F00CAB37C /* YandexAPI.swift in Sources */,
 				49D309A521D6B40E00A9527E /* UILeftMessageView.swift in Sources */,
 				492192A221D5945E000A5136 /* TranslatorViewController.swift in Sources */,
+				4918548221FB984F00B09848 /* Classes.swift in Sources */,
 				491CA71621F3A3BF00CAB37C /* UIRightMessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +373,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -423,6 +428,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

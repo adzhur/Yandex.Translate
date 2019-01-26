@@ -11,6 +11,6 @@ import UIKit
 class UILeftMessageView: UIView {
     
     override func draw(_ rect: CGRect) {
-        drawDirectionForm(side: .Left)
+        drawDirectionForm(side: .left)
     }
 }

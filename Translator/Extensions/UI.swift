@@ -38,14 +38,26 @@ extension UIView {
         self.addSubview(view)
     }
     
-    func drawDirectionForm(side: UIMessageCell.SideDirection) {
+    func drawDirectionForm(side: Side) {
         self.round(radius: 2)
         switch side {
-        case .Left:
+        case .left:
             self.roundCorners(corners: [.topLeft, .topRight, .bottomRight], radius: 16)
             
-        case .Right:
+        case .right:
             self.roundCorners(corners: [.topLeft, .topRight, .bottomLeft], radius: 16)
         }
+    }
+}
+
+extension UITableView {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UITableView.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.endEditing(true)
     }
 }

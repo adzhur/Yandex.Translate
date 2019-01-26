@@ -43,7 +43,7 @@
                                                                 <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
                                                             </accessibility>
                                                             <fontDescription key="fontDescription" name="YandexSansText-Medium" family="Yandex Sans Text" pointSize="15"/>
-                                                            <color key="textColor" red="0.75686274509803919" green="0.86699999999999999" blue="0.96499999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.75700000000000001" green="0.86699999999999999" blue="0.96499999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Извините меня" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PiQ-vx-zyp" userLabel="Text">
@@ -76,8 +76,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="headerLbl" destination="qIN-rU-Byl" id="yKz-1Z-una"/>
-                                            <outlet property="textLbl" destination="PiQ-vx-zyp" id="a5F-hX-IRu"/>
+                                            <outlet property="tTextLbl" destination="PiQ-vx-zyp" id="oRl-WU-Psq"/>
+                                            <outlet property="textLbl" destination="qIN-rU-Byl" id="fdg-a5-8Ty"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UIRightCell" rowHeight="60" id="JQK-Kg-Gj1" customClass="UIMessageCell" customModule="Translator" customModuleProvider="target">
@@ -129,8 +129,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="headerLbl" destination="2RZ-2Y-bBL" id="yxi-eA-Q4Z"/>
-                                            <outlet property="textLbl" destination="puM-Bs-ALI" id="V92-xE-gZf"/>
+                                            <outlet property="tTextLbl" destination="puM-Bs-ALI" id="3Iu-fe-lVJ"/>
+                                            <outlet property="textLbl" destination="2RZ-2Y-bBL" id="hcb-Yf-1rz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -139,41 +139,44 @@
                                 <rect key="frame" x="4" y="508" width="312" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14M-6z-NTq" userLabel="UISwitcher">
-                                        <rect key="frame" x="4" y="4" width="47" height="36"/>
-                                        <state key="normal" title="Switch"/>
+                                        <rect key="frame" x="4" y="8" width="41" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Switch">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="switchLanguage:" destination="MOG-pV-zi1" eventType="touchUpInside" id="raK-G8-NTU"/>
+                                        </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Английский" translatesAutoresizingMaskIntoConstraints="NO" id="3fe-Mz-iwJ" userLabel="TextEditor">
-                                        <rect key="frame" x="57" y="12" width="163" height="20"/>
-                                        <color key="backgroundColor" red="0.0" green="0.443" blue="0.90200000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="textColor" red="0.75700000000000001" green="0.86699999999999999" blue="0.96499999999999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Английский" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="IGt-aM-Awz">
+                                        <rect key="frame" x="51" y="11.5" width="129" height="21"/>
+                                        <color key="textColor" red="0.75700000000000001" green="0.86699999999999999" blue="0.96499999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="YandexSansText-Medium" family="Yandex Sans Text" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CT-UA-oDR" userLabel="Cancel">
-                                        <rect key="frame" x="220" y="14" width="30" height="16"/>
-                                        <state key="normal" title="C"/>
-                                    </button>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="MOG-pV-zi1" id="ZQJ-Yf-NRc"/>
+                                        </connections>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2a-Bk-fwn" userLabel="Sent">
-                                        <rect key="frame" x="266" y="14" width="32" height="16"/>
-                                        <state key="normal" title="Sent"/>
+                                        <rect key="frame" x="266" y="7" width="32" height="30"/>
+                                        <state key="normal" title="Sent">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sentText:" destination="MOG-pV-zi1" eventType="touchUpInside" id="Gsj-7a-8Fx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.44313725490196076" blue="0.90200000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="M2a-Bk-fwn" firstAttribute="leading" secondItem="9CT-UA-oDR" secondAttribute="trailing" constant="16" id="2nN-Fk-g4b"/>
-                                    <constraint firstItem="14M-6z-NTq" firstAttribute="top" secondItem="DdP-wY-UbA" secondAttribute="top" constant="4" id="BON-9a-MS7"/>
-                                    <constraint firstItem="3fe-Mz-iwJ" firstAttribute="top" secondItem="DdP-wY-UbA" secondAttribute="top" constant="12" id="MmR-02-HMV"/>
-                                    <constraint firstAttribute="height" constant="44" id="Ozh-z0-CLY"/>
-                                    <constraint firstAttribute="bottom" secondItem="M2a-Bk-fwn" secondAttribute="bottom" constant="14" id="PvP-h0-aHD"/>
-                                    <constraint firstItem="3fe-Mz-iwJ" firstAttribute="leading" secondItem="14M-6z-NTq" secondAttribute="trailing" constant="6" id="QcG-pX-ZaS"/>
-                                    <constraint firstItem="9CT-UA-oDR" firstAttribute="top" secondItem="DdP-wY-UbA" secondAttribute="top" constant="14" id="S0b-xB-y42"/>
-                                    <constraint firstItem="9CT-UA-oDR" firstAttribute="leading" secondItem="3fe-Mz-iwJ" secondAttribute="trailing" id="XC9-sO-acv"/>
+                                    <constraint firstItem="IGt-aM-Awz" firstAttribute="leading" secondItem="14M-6z-NTq" secondAttribute="trailing" constant="6" id="8Wl-1g-O8V"/>
+                                    <constraint firstItem="IGt-aM-Awz" firstAttribute="centerY" secondItem="DdP-wY-UbA" secondAttribute="centerY" id="ScY-Ex-2rS"/>
                                     <constraint firstItem="14M-6z-NTq" firstAttribute="leading" secondItem="DdP-wY-UbA" secondAttribute="leading" constant="4" id="YnD-dD-qbk"/>
-                                    <constraint firstAttribute="bottom" secondItem="9CT-UA-oDR" secondAttribute="bottom" constant="14" id="p5R-O1-CnO"/>
-                                    <constraint firstItem="M2a-Bk-fwn" firstAttribute="top" secondItem="DdP-wY-UbA" secondAttribute="top" constant="14" id="sDl-bX-ytb"/>
-                                    <constraint firstAttribute="bottom" secondItem="3fe-Mz-iwJ" secondAttribute="bottom" constant="12" id="umO-Xc-wEw"/>
+                                    <constraint firstItem="14M-6z-NTq" firstAttribute="centerY" secondItem="DdP-wY-UbA" secondAttribute="centerY" id="a9a-C7-sl4"/>
+                                    <constraint firstItem="M2a-Bk-fwn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IGt-aM-Awz" secondAttribute="trailing" constant="11" id="fjb-9m-QSe"/>
+                                    <constraint firstAttribute="height" constant="44" id="hOd-v1-DeG"/>
+                                    <constraint firstItem="M2a-Bk-fwn" firstAttribute="centerY" secondItem="DdP-wY-UbA" secondAttribute="centerY" id="qYY-Ro-AbP"/>
                                     <constraint firstAttribute="trailing" secondItem="M2a-Bk-fwn" secondAttribute="trailing" constant="14" id="vR5-KZ-jDH"/>
-                                    <constraint firstAttribute="bottom" secondItem="14M-6z-NTq" secondAttribute="bottom" constant="4" id="xCa-me-txI"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -185,14 +188,13 @@
                             <constraint firstItem="4kK-pk-YHk" firstAttribute="trailing" secondItem="DdP-wY-UbA" secondAttribute="trailing" constant="4" id="BB8-cO-Gg8"/>
                             <constraint firstItem="4kK-pk-YHk" firstAttribute="trailing" secondItem="MRR-gC-FMK" secondAttribute="trailing" id="D24-NI-kFb"/>
                             <constraint firstItem="DdP-wY-UbA" firstAttribute="leading" secondItem="4kK-pk-YHk" secondAttribute="leading" constant="4" id="a5l-fT-zuV"/>
-                            <constraint firstItem="DdP-wY-UbA" firstAttribute="top" secondItem="MRR-gC-FMK" secondAttribute="bottom" constant="16" id="hje-nN-WDg"/>
+                            <constraint firstItem="DdP-wY-UbA" firstAttribute="top" secondItem="MRR-gC-FMK" secondAttribute="bottom" constant="16" id="ylV-Ft-cnl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4kK-pk-YHk"/>
                     </view>
                     <connections>
-                        <outlet property="inputBar" destination="DdP-wY-UbA" id="YhQ-5P-LeH"/>
                         <outlet property="tableView" destination="MRR-gC-FMK" id="KmI-bk-OAg"/>
-                        <outlet property="textView" destination="3fe-Mz-iwJ" id="vw8-eo-hyd"/>
+                        <outlet property="textField" destination="IGt-aM-Awz" id="aHN-GD-EKe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbN-Dw-LjE" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,11 +10,12 @@ import UIKit
 
 class TranslatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-//    let message: [String] = ["Hello World!", "Hello, my name is Andrew", "This world is perfect!!!"]
-    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var inputBar: UIInputBarView!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var textField: UITextField!
+    
+    var object: UIMessageCell.Data?
+    var objects: [UIMessageCell.Data] = []
+    var lang: TDirection = TDirection(translation: .ru, to: .en)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,109 +28,100 @@ class TranslatorViewController: UIViewController, UITableViewDelegate, UITableVi
         
         tableView.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi));
         
+        textField.delegate = self
         
+        textField.attributedPlaceholder = NSAttributedString(string: "Английский", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 0.757, green: 0.867, blue: 0.965, alpha: 1)])
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.textView.frame.origin.y == 0 {
-                self.textView.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.textView.frame.origin.y != 0 {
-            self.textView.frame.origin.y = 0
-        }
+        tableView.hideKeyboardWhenTappedAround()
+        addKeyboardNotification()
     }
     
     
 
-    // MARK: - Table view data source
+// MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         
-        return 5//message.count
+        return objects.count
     }
     
-    //func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-     //   return 12
-    //}
+    func insertNewObject(object: UIMessageCell.Data) {
+        let indexPath = IndexPath(row: 0, section: 0)
+        objects.insert(object, at: 0)
+        tableView.insertRows(at: [indexPath], with: .left)
+    }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UIRightCell", for: indexPath) as! UIMessageCell
+        let identifier: String
+        let cell: UIMessageCell
+        let data: UIMessageCell.Data = objects[indexPath.row]
         
-//        let message = self.message[indexPath.row]
-        
-        cell.configCell(message: "")
+        switch data.side {
+        case .left:
+            identifier = "UILeftCell"
+        case .right:
+            identifier = "UIRightCell"
+        }
+            
+        cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! UIMessageCell
         cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
-
-        // Configure the cell...
+        
+        cell.ConfigCell(data: data)
 
         return cell
     }
+        
+// MARK:- InputBar function
+    @IBAction func sentText(_ sender: Any) {
+        let text = textField.text
+        YandexAPI.translateText(text: text!, lang: lang, callback: recieveResponse)
+        textField.text?.removeAll()
+        object = UIMessageCell.Data(text: text!, tDirection: lang)
+    }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    @IBAction func switchLanguage(_ sender: Any) {
+        lang.switchLanguages()
+        switch lang.to {
+        case .en:
+            textField.placeholder = "Английский"
+        case .ru:
+            textField.placeholder = "Русский"
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func recieveResponse(response: YandexAPI.Response) {
+        object!.tText = response.text[0]
+        insertNewObject(object: object!)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    
+// MARK:- Keyboard function
+    func addKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    @objc func keyboardWillShow(notification:NSNotification) {
+        adjustHeight(show: true, notification: notification)
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @objc func keyboardWillHide(notification:NSNotification) {
+        adjustHeight(show: false, notification: notification)
     }
-    */
-
+    
+    @objc func adjustHeight(show:Bool, notification:NSNotification) {
+        guard let userInfo = notification.userInfo else {return}
+        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
+// FIXME: Gap between keyboard and view
+        //        guard let animationDurarion = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else {return}
+        let keyboardFrame = keyboardSize.cgRectValue
+        let changeInHeight = (keyboardFrame.height) * (show ? -1 : 0)
+        self.view.frame.origin.y = changeInHeight
+    }
 }
