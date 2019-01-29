@@ -138,18 +138,43 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DdP-wY-UbA" customClass="UIInputBarView" customModule="Translator" customModuleProvider="target">
                                 <rect key="frame" x="4" y="508" width="312" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14M-6z-NTq" userLabel="UISwitcher">
-                                        <rect key="frame" x="4" y="8" width="41" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Switch">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0K-bS-LCi" customClass="UISwitcherView" customModule="Translator" customModuleProvider="target">
+                                        <rect key="frame" x="4" y="4" width="46" height="36"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14M-6z-NTq" userLabel="UISwitcher">
+                                                <rect key="frame" x="5" y="5" width="36" height="26"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <state key="normal" title="RU-EN">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="switchLanguage:" destination="MOG-pV-zi1" eventType="touchUpInside" id="raK-G8-NTU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.20450886054269618" green="0.5475758640147308" blue="0.90200000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="A9s-Pf-PJn"/>
+                                            <constraint firstItem="14M-6z-NTq" firstAttribute="centerY" secondItem="v0K-bS-LCi" secondAttribute="centerY" id="BLp-x9-Dzq"/>
+                                            <constraint firstAttribute="height" constant="36" id="nXA-lL-jSZ"/>
+                                            <constraint firstItem="14M-6z-NTq" firstAttribute="centerX" secondItem="v0K-bS-LCi" secondAttribute="centerX" id="wSu-rI-1N5"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2a-Bk-fwn" userLabel="Sent">
+                                        <rect key="frame" x="282" y="14" width="16" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="JaA-HG-KuF"/>
+                                            <constraint firstAttribute="width" constant="16" id="Nqt-LJ-BKg"/>
+                                        </constraints>
+                                        <state key="normal" image="SentIcon">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="switchLanguage:" destination="MOG-pV-zi1" eventType="touchUpInside" id="raK-G8-NTU"/>
+                                            <action selector="sentText:" destination="MOG-pV-zi1" eventType="touchUpInside" id="Gsj-7a-8Fx"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Английский" clearsOnBeginEditing="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="IGt-aM-Awz">
-                                        <rect key="frame" x="51" y="11.5" width="129" height="21"/>
+                                        <rect key="frame" x="56" y="11.5" width="210" height="21"/>
                                         <color key="textColor" red="0.75700000000000001" green="0.86699999999999999" blue="0.96499999999999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="YandexSansText-Medium" family="Yandex Sans Text" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -157,26 +182,17 @@
                                             <outlet property="delegate" destination="MOG-pV-zi1" id="ZQJ-Yf-NRc"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2a-Bk-fwn" userLabel="Sent">
-                                        <rect key="frame" x="266" y="7" width="32" height="30"/>
-                                        <state key="normal" title="Sent">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="sentText:" destination="MOG-pV-zi1" eventType="touchUpInside" id="Gsj-7a-8Fx"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.44313725490196076" blue="0.90200000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="IGt-aM-Awz" firstAttribute="leading" secondItem="14M-6z-NTq" secondAttribute="trailing" constant="6" id="8Wl-1g-O8V"/>
-                                    <constraint firstItem="IGt-aM-Awz" firstAttribute="centerY" secondItem="DdP-wY-UbA" secondAttribute="centerY" id="ScY-Ex-2rS"/>
-                                    <constraint firstItem="14M-6z-NTq" firstAttribute="leading" secondItem="DdP-wY-UbA" secondAttribute="leading" constant="4" id="YnD-dD-qbk"/>
-                                    <constraint firstItem="14M-6z-NTq" firstAttribute="centerY" secondItem="DdP-wY-UbA" secondAttribute="centerY" id="a9a-C7-sl4"/>
-                                    <constraint firstItem="M2a-Bk-fwn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IGt-aM-Awz" secondAttribute="trailing" constant="11" id="fjb-9m-QSe"/>
+                                    <constraint firstAttribute="trailing" secondItem="M2a-Bk-fwn" secondAttribute="trailing" constant="14" id="HQy-Sp-ZcI"/>
+                                    <constraint firstItem="IGt-aM-Awz" firstAttribute="centerY" secondItem="DdP-wY-UbA" secondAttribute="centerY" id="LCF-IR-XNd"/>
+                                    <constraint firstAttribute="bottom" secondItem="v0K-bS-LCi" secondAttribute="bottom" constant="4" id="U3M-ld-nQw"/>
+                                    <constraint firstItem="M2a-Bk-fwn" firstAttribute="leading" secondItem="IGt-aM-Awz" secondAttribute="trailing" constant="16" id="fEY-fu-Aed"/>
                                     <constraint firstAttribute="height" constant="44" id="hOd-v1-DeG"/>
-                                    <constraint firstItem="M2a-Bk-fwn" firstAttribute="centerY" secondItem="DdP-wY-UbA" secondAttribute="centerY" id="qYY-Ro-AbP"/>
-                                    <constraint firstAttribute="trailing" secondItem="M2a-Bk-fwn" secondAttribute="trailing" constant="14" id="vR5-KZ-jDH"/>
+                                    <constraint firstItem="IGt-aM-Awz" firstAttribute="leading" secondItem="v0K-bS-LCi" secondAttribute="trailing" constant="6" id="kgo-P6-M7z"/>
+                                    <constraint firstItem="v0K-bS-LCi" firstAttribute="leading" secondItem="DdP-wY-UbA" secondAttribute="leading" constant="4" id="m7s-n1-hLX"/>
+                                    <constraint firstAttribute="bottom" secondItem="M2a-Bk-fwn" secondAttribute="bottom" constant="14" id="piu-qk-17U"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -202,4 +218,7 @@
             <point key="canvasLocation" x="-1492.5" y="-261.97183098591552"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SentIcon" width="26" height="27"/>
+    </resources>
 </document>
