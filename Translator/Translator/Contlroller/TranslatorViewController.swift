@@ -11,7 +11,9 @@ import UIKit
 class TranslatorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: UIInputField!
+    @IBOutlet weak var inputBarView: UIInputBarView!
+    @IBOutlet weak var switchLangBtn: UIButton!
     
     var object: UIMessageCell.Data?
     var objects: [UIMessageCell.Data] = []
@@ -30,9 +32,9 @@ class TranslatorViewController: UIViewController, UITableViewDelegate, UITableVi
         
         textField.delegate = self
         
-        textField.attributedPlaceholder = NSAttributedString(string: "Английский", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 0.757, green: 0.867, blue: 0.965, alpha: 1)])
+        textField.switchLangPlaceholder(lang: .en)
         
-        tableView.hideKeyboardWhenTappedAround()
+        self.hideKeyboardWhenTappedAround()
         addKeyboardNotification()
     }
     
@@ -53,7 +55,7 @@ class TranslatorViewController: UIViewController, UITableViewDelegate, UITableVi
     func insertNewObject(object: UIMessageCell.Data) {
         let indexPath = IndexPath(row: 0, section: 0)
         objects.insert(object, at: 0)
-        tableView.insertRows(at: [indexPath], with: .left)
+        tableView.insertRows(at: [indexPath], with: .bottom)
     }
 
     
@@ -87,12 +89,10 @@ class TranslatorViewController: UIViewController, UITableViewDelegate, UITableVi
     
     @IBAction func switchLanguage(_ sender: Any) {
         lang.switchLanguages()
-        switch lang.to {
-        case .en:
-            textField.placeholder = "Английский"
-        case .ru:
-            textField.placeholder = "Русский"
-        }
+//        print(lang.from.rawValue.uppercased()+"-"+lang.to.rawValue.uppercased())
+        switchLangBtn.setTitle(lang.from.rawValue.uppercased()+"-"+lang.to.rawValue.uppercased(), for: .normal)
+        textField.switchLangPlaceholder(lang: lang.to)
+        inputBarView.switchLangColor(lang: lang.to)
     }
     
     func recieveResponse(response: YandexAPI.Response) {
