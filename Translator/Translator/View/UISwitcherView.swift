@@ -10,10 +10,7 @@ import UIKit
 
 class UISwitcherView: UIView {
 
-    
     override func draw(_ rect: CGRect) {
         self.round(radius: rect.height * 0.5)
     }
-    
-
 }

@@ -23,8 +23,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Яндекс Переводчик" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfR-W0-mni">
+                                <rect key="frame" x="0.0" y="37" width="320" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRR-gC-FMK">
-                                <rect key="frame" x="0.0" y="20" width="320" height="472"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="422"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UILeftCell" rowHeight="60" id="FRT-SL-aQz" customClass="UIMessageCell" customModule="Translator" customModuleProvider="target">
@@ -198,12 +204,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="4kK-pk-YHk" firstAttribute="trailing" secondItem="HfR-W0-mni" secondAttribute="trailing" id="0fd-8b-NnE"/>
                             <constraint firstItem="MRR-gC-FMK" firstAttribute="leading" secondItem="4kK-pk-YHk" secondAttribute="leading" id="1gc-R2-Aqm"/>
                             <constraint firstItem="4kK-pk-YHk" firstAttribute="bottom" secondItem="DdP-wY-UbA" secondAttribute="bottom" constant="16" id="32c-F9-v7g"/>
-                            <constraint firstItem="MRR-gC-FMK" firstAttribute="top" secondItem="4kK-pk-YHk" secondAttribute="top" id="9xZ-g5-PL0"/>
+                            <constraint firstItem="MRR-gC-FMK" firstAttribute="top" secondItem="HfR-W0-mni" secondAttribute="bottom" constant="13" id="9xZ-g5-PL0"/>
                             <constraint firstItem="4kK-pk-YHk" firstAttribute="trailing" secondItem="DdP-wY-UbA" secondAttribute="trailing" constant="4" id="BB8-cO-Gg8"/>
                             <constraint firstItem="4kK-pk-YHk" firstAttribute="trailing" secondItem="MRR-gC-FMK" secondAttribute="trailing" id="D24-NI-kFb"/>
                             <constraint firstItem="DdP-wY-UbA" firstAttribute="leading" secondItem="4kK-pk-YHk" secondAttribute="leading" constant="4" id="a5l-fT-zuV"/>
+                            <constraint firstItem="HfR-W0-mni" firstAttribute="centerX" secondItem="JvW-RO-YHD" secondAttribute="centerX" id="bTr-7a-5Es"/>
+                            <constraint firstItem="HfR-W0-mni" firstAttribute="leading" secondItem="4kK-pk-YHk" secondAttribute="leading" id="cQV-CJ-Akk"/>
+                            <constraint firstItem="HfR-W0-mni" firstAttribute="top" secondItem="4kK-pk-YHk" secondAttribute="top" constant="17" id="yKn-0t-azk"/>
                             <constraint firstItem="DdP-wY-UbA" firstAttribute="top" secondItem="MRR-gC-FMK" secondAttribute="bottom" constant="16" id="ylV-Ft-cnl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4kK-pk-YHk"/>

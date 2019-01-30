@@ -15,7 +15,6 @@ class TranslatorViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var inputBarView: UIInputBarView!
     @IBOutlet weak var switchLangBtn: UIButton!
     
-    var object: UIMessageCell.Data?
     var objects: [UIMessageCell.Data] = []
     var lang: TDirection = TDirection(translation: .ru, to: .en)
     
@@ -34,8 +33,13 @@ class TranslatorViewController: UIViewController, UITableViewDelegate, UITableVi
         
         textField.switchLangPlaceholder(lang: .en)
         
-        self.hideKeyboardWhenTappedAround()
+//        self.hideKeyboardWhenTappedAround()
         addKeyboardNotification()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
     
     
@@ -82,24 +86,23 @@ class TranslatorViewController: UIViewController, UITableViewDelegate, UITableVi
 // MARK:- InputBar function
     @IBAction func sentText(_ sender: Any) {
         let text = textField.text
-        YandexAPI.translateText(text: text!, lang: lang, callback: recieveResponse)
+        if text?.replacingOccurrences(of: " ", with: "") != "" {
+            let object: UIMessageCell.Data = UIMessageCell.Data(text: text!, tDirection: lang)
+        
+            YandexAPI.translateText(text: text!, lang: lang, callback: {response in
+                object.tText = response.text[0]
+                self.insertNewObject(object: object)
+            })
+        }
         textField.text?.removeAll()
-        object = UIMessageCell.Data(text: text!, tDirection: lang)
     }
     
     @IBAction func switchLanguage(_ sender: Any) {
         lang.switchLanguages()
-//        print(lang.from.rawValue.uppercased()+"-"+lang.to.rawValue.uppercased())
-        switchLangBtn.setTitle(lang.from.rawValue.uppercased()+"-"+lang.to.rawValue.uppercased(), for: .normal)
+        switchLangBtn.setTitle("\(lang.from.rawValue.uppercased())-\(lang.to.rawValue.uppercased())", for: .normal)
         textField.switchLangPlaceholder(lang: lang.to)
         inputBarView.switchLangColor(lang: lang.to)
     }
-    
-    func recieveResponse(response: YandexAPI.Response) {
-        object!.tText = response.text[0]
-        insertNewObject(object: object!)
-    }
-    
     
 // MARK:- Keyboard function
     func addKeyboardNotification() {

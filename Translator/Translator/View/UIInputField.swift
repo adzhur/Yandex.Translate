@@ -26,5 +26,4 @@ class UIInputField: UITextField {
             self.attributedPlaceholder = NSAttributedString(string: "Русский", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(red: 0.98, green: 0.98, blue: 0.98, alpha: 0.8)])
         }
     }
-
 }

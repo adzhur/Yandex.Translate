@@ -14,9 +14,9 @@ class YandexAPI {
     static let url_translate: String = "https://translate.yandex.net/api/v1.5/tr.json/translate"
     
     static func translateText(text: String, lang: TDirection, callback: @escaping (_ response: Response) -> ()) {
-        let length = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)?.count
-        let parameters: [String: Any] = ["key": api_Key, "text": text, "lang": lang.from.rawValue + "-"+lang.to.rawValue]
-        let HTTPHeaders: [String: String] = ["Content-Type": "application/x-www-form-urlencoded", "Host": "translate.yandex.net", "Accept": "*/*", "Content-Length": String(length!)]
+        let contentLength = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)?.count
+        let parameters: [String: Any] = ["key": api_Key, "text": text, "lang": "\(lang.from.rawValue)-\(lang.to.rawValue)"]
+        let HTTPHeaders: [String: String] = ["Content-Type": "application/x-www-form-urlencoded", "Host": "translate.yandex.net", "Accept": "*/*", "Content-Length": String(contentLength!)]
         
         request(url_translate, method: .post, parameters: parameters, headers: HTTPHeaders).validate().responseJSON { responseJSON in
             switch responseJSON.result {
@@ -33,9 +33,6 @@ class YandexAPI {
             
         }
     }
-    
-//    String(format: "%02d-%02d", lang.from.rawValue, lang.to.rawValue)
-    
     
     struct Response {
         var code: Int

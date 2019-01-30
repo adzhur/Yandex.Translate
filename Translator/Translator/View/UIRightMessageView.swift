@@ -13,6 +13,4 @@ class UIRightMessageView: UIView {
     override func draw(_ rect: CGRect) {
         drawDirectionForm(side: .right)
     }
-    
-
 }
