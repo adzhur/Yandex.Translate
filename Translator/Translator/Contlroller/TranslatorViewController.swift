@@ -33,15 +33,9 @@ class TranslatorViewController: UIViewController, UITableViewDelegate, UITableVi
         
         textField.switchLangPlaceholder(lang: .en)
         
-//        self.hideKeyboardWhenTappedAround()
+        self.hideKeyboardWhenTappedAround()
         addKeyboardNotification()
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-        super.touchesBegan(touches, with: event)
-    }
-    
     
 
 // MARK: - Table view data source
